@@ -54,6 +54,33 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=club-postgres;Port=5432;Database=clubdb;Username=admin;Password=admin123
 
+
+  membership-postgres:
+    image: postgres:15
+    container_name: membership-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: membershipdb
+    ports:
+      - "55434:5432"
+    volumes:
+      - membership_pgdata:/var/lib/postgresql/data
+
+  membershipservice-api:
+    build:
+      context: ./services/MembershipService 
+      dockerfile: MembershipService.API/Dockerfile
+    container_name: membershipservice-api
+    depends_on:
+      - membership-postgres
+    ports:
+      - "5003:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=membership-postgres;Port=5432;Database=membershipdb;Username=admin;Password=admin123
 volumes:
   auth_pgdata:
   club_pgdata:
+  membership_pgdata:
