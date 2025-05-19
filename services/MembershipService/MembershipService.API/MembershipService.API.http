@@ -1,0 +1,6 @@
+@MembershipService.API_HostAddress = http://localhost:5153
+
+GET {{MembershipService.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
