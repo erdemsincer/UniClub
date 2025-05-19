@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{2FC3B482-D971-4009-ABBA-E43CE9792A00}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MembershipService", "MembershipService", "{4145ABA6-B5DD-4D5F-B5ED-09690D026F92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipService.API", "services\MembershipService\MembershipService.API\MembershipService.API.csproj", "{9AA9D796-C4D9-45A0-A131-29C8310ECE0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipService.Application", "services\MembershipService\MembershipService.Application\MembershipService.Application.csproj", "{47ACAF65-D696-4FCA-8199-555C8DCBAFDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipService.Domain", "services\MembershipService\MembershipService.Domain\MembershipService.Domain.csproj", "{C9A47237-2B48-4701-8656-322373BDC790}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipService.Infrastructure", "services\MembershipService\MembershipService.Infrastructure\MembershipService.Infrastructure.csproj", "{A6FB1D9E-14FA-46B7-B82B-0E0B7ACC9091}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipService.Persistence", "services\MembershipService\MembershipService.Persistence\MembershipService.Persistence.csproj", "{2FCEB999-08CD-4C42-AD68-39F24D345E7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AA9D796-C4D9-45A0-A131-29C8310ECE0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA9D796-C4D9-45A0-A131-29C8310ECE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA9D796-C4D9-45A0-A131-29C8310ECE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA9D796-C4D9-45A0-A131-29C8310ECE0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47ACAF65-D696-4FCA-8199-555C8DCBAFDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47ACAF65-D696-4FCA-8199-555C8DCBAFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47ACAF65-D696-4FCA-8199-555C8DCBAFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47ACAF65-D696-4FCA-8199-555C8DCBAFDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A47237-2B48-4701-8656-322373BDC790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A47237-2B48-4701-8656-322373BDC790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A47237-2B48-4701-8656-322373BDC790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A47237-2B48-4701-8656-322373BDC790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6FB1D9E-14FA-46B7-B82B-0E0B7ACC9091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6FB1D9E-14FA-46B7-B82B-0E0B7ACC9091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6FB1D9E-14FA-46B7-B82B-0E0B7ACC9091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6FB1D9E-14FA-46B7-B82B-0E0B7ACC9091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FCEB999-08CD-4C42-AD68-39F24D345E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FCEB999-08CD-4C42-AD68-39F24D345E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FCEB999-08CD-4C42-AD68-39F24D345E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FCEB999-08CD-4C42-AD68-39F24D345E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4145ABA6-B5DD-4D5F-B5ED-09690D026F92} = {2FC3B482-D971-4009-ABBA-E43CE9792A00}
+		{9AA9D796-C4D9-45A0-A131-29C8310ECE0D} = {4145ABA6-B5DD-4D5F-B5ED-09690D026F92}
+		{47ACAF65-D696-4FCA-8199-555C8DCBAFDC} = {4145ABA6-B5DD-4D5F-B5ED-09690D026F92}
+		{C9A47237-2B48-4701-8656-322373BDC790} = {4145ABA6-B5DD-4D5F-B5ED-09690D026F92}
+		{A6FB1D9E-14FA-46B7-B82B-0E0B7ACC9091} = {4145ABA6-B5DD-4D5F-B5ED-09690D026F92}
+		{2FCEB999-08CD-4C42-AD68-39F24D345E7F} = {4145ABA6-B5DD-4D5F-B5ED-09690D026F92}
+	EndGlobalSection
+EndGlobal
