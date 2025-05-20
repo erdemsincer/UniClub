@@ -33,7 +33,14 @@ builder.Services.AddHttpClient<IMembershipInfoService, MembershipInfoService>(cl
 {
     client.BaseAddress = new Uri("http://membershipservice-api:8080");
 });
-builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+builder.Services.Configure<MailSettings>(options =>
+{
+    builder.Configuration.GetSection("MailSettings").Bind(options);
+
+    // Þifreyi ortam deðiþkeninden al
+    options.Password = Environment.GetEnvironmentVariable("MAIL_PASSWORD");
+});
+
 builder.Services.AddScoped<IMailService, MailService>();
 
 builder.Services.AddControllers();
