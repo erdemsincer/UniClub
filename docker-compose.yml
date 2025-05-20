@@ -95,8 +95,8 @@ services:
 
   eventservice-api:
     build:
-      context: ./services/EventService
-      dockerfile: EventService.API/Dockerfile
+      context: .
+      dockerfile: services/EventService/EventService.API/Dockerfile
     container_name: eventservice-api
     depends_on:
       - event-postgres
@@ -106,8 +106,25 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Host=event-postgres;Port=5432;Database=eventdb;Username=admin;Password=admin123
 
+  notificationservice-api:
+    build:
+     context: .
+     dockerfile: services/NotificationService/NotificationService.API/Dockerfile  
+    container_name: notificationservice-api
+    depends_on:
+      - rabbitmq
+    ports:
+      - "5005:8080"
+  
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"     
+      - "15672:15672"  
 
 
+  
 volumes:
   auth_pgdata:
   club_pgdata:
