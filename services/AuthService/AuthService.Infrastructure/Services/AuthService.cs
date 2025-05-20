@@ -61,5 +61,18 @@ namespace AuthService.Infrastructure.Services
                 Token = token
             };
         }
+        public async Task<UserDto?> GetByIdAsync(int id)
+        {
+            var user = await _userRepo.GetByIdAsync(id);
+            if (user == null) return null;
+
+            return new UserDto
+            {
+                Id = user.Id,
+                FullName = user.FullName,
+                Email = user.Email
+            };
+        }
+
     }
 }
