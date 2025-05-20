@@ -29,6 +29,21 @@ namespace AuthService.API.Controllers
             var result = await _authService.LoginAsync(dto);
             return Ok(result);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            var user = await _authService.GetByIdAsync(id);
+            if (user == null)
+                return NotFound("Kullanıcı bulunamadı");
+
+            return Ok(new
+            {
+                user.Id,
+                user.FullName,
+                user.Email
+            });
+        }
+
     }
 
 }
