@@ -1,5 +1,7 @@
 using MassTransit;
 using NotificationService.API.Consumers;
+using NotificationService.Infrastructure.Services;
+using NotificationService.Infrastructure.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,16 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
+builder.Services.AddHttpClient<IUserInfoService, UserInfoService>(client =>
+{
+    client.BaseAddress = new Uri("http://authservice-api:8080");
+});
+builder.Services.AddHttpClient<IMembershipInfoService, MembershipInfoService>(client =>
+{
+    client.BaseAddress = new Uri("http://membershipservice-api:8080");
+});
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+builder.Services.AddScoped<IMailService, MailService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
