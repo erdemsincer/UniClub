@@ -38,6 +38,7 @@ public class EventService : IEventService
             EventId = ev.Id,
             ClubId = ev.ClubId,
             Title = ev.Title,
+            Description = ev.Description,
             StartTime = ev.StartTime
         };
 
