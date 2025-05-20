@@ -1,21 +1,27 @@
 ﻿using EventService.Application.Dtos;
 using EventService.Application.Interfaces;
 using EventService.Domain.Entities;
+using MassTransit;
+using UniClub.Shared.Events;
 
 namespace EventService.Infrastructure.Services;
 
 public class EventService : IEventService
 {
     private readonly IEventRepository _repo;
+    private readonly IPublishEndpoint _publishEndpoint;
 
-    public EventService(IEventRepository repo)
+
+
+    public EventService(IEventRepository repo, IPublishEndpoint publishEndpoint)
     {
         _repo = repo;
+        _publishEndpoint = publishEndpoint;
     }
 
     public async Task<int> CreateAsync(CreateEventDto dto, int userId)
     {
-        var ev = new Event
+        var ev = new Domain.Entities.Event
         {
             Title = dto.Title,
             Description = dto.Description,
@@ -26,6 +32,17 @@ public class EventService : IEventService
         };
 
         await _repo.AddAsync(ev);
+
+        var eventCreated = new EventCreatedEvent
+        {
+            EventId = ev.Id,
+            ClubId = ev.ClubId,
+            Title = ev.Title,
+            StartTime = ev.StartTime
+        };
+
+        await _publishEndpoint.Publish(eventCreated);
+
         return ev.Id;
     }
 
